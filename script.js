@@ -36,10 +36,10 @@ class NewsStreamApp {
     this.lastUpdateTime = null;
     
     // Content limits
-    this.maxArticles = 50;
+    this.maxArticles = 100;
     this.maxCategoriesUser = 15;
     this.maxSourcesPerCategory = 5;
-    this.maxArticlesPerSource = 2;
+    this.maxArticlesPerSource = 5;
     
     // User preferences with localStorage persistence
     this.userPreferences = this.loadUserPreferences();
@@ -48,30 +48,26 @@ class NewsStreamApp {
     this.defaultSources = {
       breaking: [
         { id: 'foxnews-breaking', name: 'Fox News', url: 'https://moxie.foxnews.com/google-publisher/latest.xml', verified: true },
-        { id: 'ndtv', name: 'NDTV', url: 'https://feeds.feedburner.com/ndtvnews-top-stories', verified: true },
+        { id: 'ndtv', name: 'NDTV', url: 'https://feeds.feedburner.com/ndtvnews-india-news', verified: true },
         { id: 'bbc-breaking', name: 'BBC News', url: 'https://feeds.bbci.co.uk/news/rss.xml', verified: true },
-        { id: 'cnn-breaking', name: 'CNN', url: 'http://rss.cnn.com/rss/edition.rss', verified: true }
+        { id: 'sky-breaking', name: 'Sky News', url:'https://feeds.skynews.com/feeds/rss/world.xml', verified: true }
       ],
       world: [
         { id: 'bbc-world', name: 'BBC World', url: 'https://feeds.bbci.co.uk/news/world/rss.xml', verified: true },
         { id: 'foxnews-world', name: 'Fox News', url: 'https://moxie.foxnews.com/google-publisher/world.xml', verified: true},
         { id: 'guardian-world', name: 'The Guardian', url: 'https://www.theguardian.com/world/rss', verified: true },
-        { id: 'firstpost', name: 'First Post', url: 'https://www.firstpost.com/commonfeeds/v1/mfp/rss/world.xml', verified: true }
       ],
       politics: [
-        { id: 'politico', name: 'Politico', url: 'https://www.politico.com/rss/politics08.xml', verified: true },
         { id: 'foxnews-politics', name: 'Fox News Politics', url: 'https://moxie.foxnews.com/google-publisher/politics.xml', verified: true },
         { id: 'npr-politics', name: 'NPR Politics', url: 'https://feeds.npr.org/1014/rss.xml', verified: true },
         { id: 'hill-politics', name: 'The Hill', url: 'https://thehill.com/rss/syndicator/19109', verified: true }
       ],
       business: [
-        { id: 'yahoo-finance', name: 'Yahoo Finance', url: 'https://feeds.finance.yahoo.com/rss/2.0/headline', verified: true },
-        { id: 'businessstandard-business', name: 'Business Standard', url: 'https://www.business-standard.com/rss/home_page_top_stories.rss', verified: true },
+        { id: 'yahoo-finance', name: 'Yahoo Finance', url: 'https://news.yahoo.com/rss/finance', verified: true },
         { id: 'marketwatch', name: 'MarketWatch', url: 'https://feeds.marketwatch.com/marketwatch/topstories/', verified: true },
-        { id: 'firstpost-business', name: 'First Post', url: 'https://www.firstpost.com/commonfeeds/v1/mfp/rss/business.xml', verified: true }
+        { id: 'cnbc-business', name: 'CNBC', url: 'https://www.cnbc.com/id/100003114/device/rss/rss.html', verified: true }
       ],
       technology: [
-        { id: 'techcrunch', name: 'TechCrunch', url: 'https://techcrunch.com/feed/', verified: true },
         { id: 'theverge', name: 'The Verge', url: 'https://www.theverge.com/rss/index.xml', verified: true },
         { id: 'wired', name: 'Wired', url: 'https://www.wired.com/feed/rss', verified: true },
         { id: 'arstechnica', name: 'Ars Technica', url: 'https://feeds.arstechnica.com/arstechnica/index', verified: true }
